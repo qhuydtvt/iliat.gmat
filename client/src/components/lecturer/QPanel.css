@@ -1,0 +1,36 @@
+.question-panel {
+  flex: 1 1 auto;
+  margin: 16px;
+  background-color: #FFFF;
+  padding: 8px;
+}
+
+.question-edit {
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* .q-difficulty {
+  background-color: black;
+  padding: 8px;
+} */
+
+.question-remove {
+  cursor: pointer;
+}
+
+.q-easy {
+  color: #4F703C;
+}
+
+.q-medium {
+  color: #D9a143;
+}
+
+.q-hard {
+  color: #BD2224;
+}
+
+.q-very-hard {
+  color: red;
+}

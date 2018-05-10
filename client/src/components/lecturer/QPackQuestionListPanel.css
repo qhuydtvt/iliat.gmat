@@ -1,0 +1,21 @@
+.question-wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.question-no {
+  flex-grow: 0;
+}
+
+.question-stimulus {
+  flex-grow: 1;
+  background-color: #EEEEEE;
+  padding: 4px 4px 4px 8px;
+  margin-left: 8px;
+  border-radius: 4px;
+}
+
+.question-remove {
+  flex-grow: 0;
+}

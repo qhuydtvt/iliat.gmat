@@ -1,0 +1,9 @@
+nav {
+  background-color: #1976D2;
+  margin: 0px 0px 16px 0px;
+}
+
+.nav-link {
+  color: #FFFFFF !important;
+  cursor: pointer;
+}

@@ -1,0 +1,29 @@
+.sidebar {
+  min-width: 200px;
+  max-width: 30%;
+  min-height: 100vh;
+  display: inline-block;
+  background-color: white !important;
+}
+
+.sidebar h3 {
+  margin-bottom: 16px;
+  text-align: center;
+  color: #3F51B5;
+  padding: 8px 0px 8px 0px;
+}
+
+.sidebar-items {
+ display: flex;
+ flex-flow: column;
+ padding: 0px 16px 0px 16px;
+}
+
+.sidebar-item {
+  color: #0D47A1;
+  text-decoration: none !important;
+}
+
+.sidebar-item span {
+  margin-left: 16px;
+}
