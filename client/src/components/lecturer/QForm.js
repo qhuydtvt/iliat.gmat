@@ -112,7 +112,7 @@ class QForm extends Component {
             name="rightChoice"
             value={rightChoice}
             onBlur={handleBlur}
-            onChange={(event) => console.log(event.constructor.name)}
+            onChange={handleChange}
           >
             {CHOICE_LETTERS.map((choiceLetter, index) => {
               return (
