@@ -18,7 +18,6 @@ export default function(props) {
           <tr className="">
             <th>#</th>
             <th>Stimulus</th>
-            <th>Difficulty</th>
             {showActions && <th className="">Actions</th>}
           </tr>
         </thead>
@@ -29,7 +28,6 @@ export default function(props) {
               return (<tr key={id} className={trClassName} onClick={() => onQuestionClicked(question)}> 
                 { renderId(question.id) }
                 { renderStimulus(elipsis(question.stimulus, stimulusMaxLength)) }
-                { renderDifficulty(question.difficulty) }
                 { showActions  && renderActions(question, props.onEditRequest, props.onDeleteRequest) }
               </tr>);
             })
@@ -51,16 +49,6 @@ function renderStimulus(stimulus) {
       <span dangerouslySetInnerHTML={{__html: stimulus}} />
     </td> 
   );
-}
-
-function renderDifficulty(difficulty) {
-  switch(difficulty) {
-    case 0: return (<td><span className="q-difficulty q-easy">Easy</span></td>);
-    case 1: return (<td><span className="q-difficulty q-medium">Medium</span></td>);
-    case 2: return (<td><span className="q-difficulty q-hard">Hard</span></td>);
-    case 3: return (<td><span className="q-difficulty q-very-hard">Very hard</span></td>);
-    default: return (<td><span>Unknown</span></td>);
-  }
 }
 
 function renderActions(question, editRequest, deleteRequest) {

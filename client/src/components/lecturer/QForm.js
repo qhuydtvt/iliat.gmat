@@ -29,9 +29,6 @@ class QForm extends Component {
     if(!stripHTML(values.stimulus)) {
       errors.stimulus = "Stimulus required";
     }
-    if(!stripHTML(values.stem)) {
-      errors.stem = "Stem required";
-    }
     return errors;
   }
 
@@ -124,21 +121,7 @@ class QForm extends Component {
             })}
           </Input>
         </FormGroup>
-        
-        <FormGroup>
-          <legend>Difficulty</legend>
-          <Input
-            type="select"
-            name="difficulty"
-            value={difficulty}
-            onBlur={handleBlur}
-            onChange={handleChange}
-          >
-            {QUESTION_DIFFICULTIES.map((questionDifficulty, index) => {
-              return (<option key={questionDifficulty.value} value={questionDifficulty.value}>{ questionDifficulty.text }</option>);
-            })}
-          </Input>
-        </FormGroup>
+
         <div className="d-flex justify-content-end">
           <Button className="mb-2" color="secondary" onClick={this.props.onCancel}>Cancel</Button>
           <Button className="mb-2 ml-2" color="primary">Submit</Button>
