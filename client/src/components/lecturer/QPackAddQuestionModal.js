@@ -71,7 +71,10 @@ class QPackAddQuestionModal extends Component {
             <Button color="secondary" onClick={this.props.toggle} >Cancel</Button>
             <Button 
               color="primary" className="ml-2"
-              onClick={() => this.props.onSelectionDone(this.selectedQuestions())}>OK</Button>
+              onClick={() => {
+                this.props.onSelectionDone(this.selectedQuestions());
+                this.props.toggle();
+              }}>OK</Button>
           </div>
       </div>
     );

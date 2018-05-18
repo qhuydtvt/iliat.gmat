@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { openPopup, closePopup, removeQuestionPack, selectQuestionPack  } from '../../actions';
 import { addQuestionPack, editQuestionPack, fetchQuestionPacks } from '../../actions';
 
-import { ROUTER_QUESTION_PACK_EDIT }  from '../../constants';
+import { ROUTER_QUESTION_PACK_EDIT, ROUTER_QUESTION_PACK_ADD }  from '../../constants';
 
  
 class QPackListPanel extends Component {
@@ -40,21 +40,21 @@ class QPackListPanel extends Component {
   }
 
   addRequest() {
-    const handleOK = (questionPack) => this.props.addQuestionPack(questionPack);
-    const handleCancel = () => this.props.history.goBack();
-    const handlers = { handleOK, handleCancel };
+    // const handleOK = (questionPack) => this.props.addQuestionPack(questionPack);
+    // const handleCancel = () => this.props.history.goBack();
+    // const handlers = { handleOK, handleCancel };
 
-    this.props.selectQuestionPack(null, handlers, "Edit question pack");
-    this.props.history.push(ROUTER_QUESTION_PACK_EDIT);
+    // this.props.selectQuestionPack(null, handlers, "Edit question pack");
+    this.props.history.push(ROUTER_QUESTION_PACK_ADD);
   }
 
   editRequest(questionPack) {
-    const handleOK = (questionPack) => this.props.editQuestionPack(questionPack);
-    const handleCancel = () => this.props.history.goBack();
-    const handlers = {handleOK, handleCancel};
+    // const handleOK = (questionPack) => this.props.editQuestionPack(questionPack);
+    // const handleCancel = () => this.props.history.goBack();
+    // const handlers = {handleOK, handleCancel};
 
-    this.props.selectQuestionPack(questionPack, handlers, "Add question pack");
-    this.props.history.push(ROUTER_QUESTION_PACK_EDIT);
+    // this.props.selectQuestionPack(questionPack, handlers, "Add question pack");
+    this.props.history.push(`${ROUTER_QUESTION_PACK_EDIT}/${questionPack._id}`);
   }
   
   renderQuestionPacks(questionPacks) {

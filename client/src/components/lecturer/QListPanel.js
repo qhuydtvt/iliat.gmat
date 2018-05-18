@@ -43,7 +43,7 @@ class QListPanel extends Component {
     const handleCancel = () => {};
     const handlers = { handleOK, handleCancel };
     this.props.selectQuestion(question, handlers, "Edit question");
-    this.props.history.push("/lecturer/question/edit");
+    this.props.history.push(`/lecturer/question/edit/${question._id}`);
   }
 
   onAddRequest() {

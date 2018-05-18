@@ -41,12 +41,14 @@ export function removeQuestion(question, onSuccess=null, onError=null) {
   };
 }
 
-export function editQuestion(question) {
+export function editQuestion(question, onEditDone=null) {
   const request = axios.put(`${API_QUESTIONS}/${question._id}`, question);
   const interceptor = (response) => {
     return new Promise((resolve, reject) => {
       if(checkFields(response, ['data.success', 'data.question'])) {
         resolve(response.data.question); // Temporary use param as updater
+        if(onEditDone != null)
+          onEditDone();
       } else {
         reject();
       }
@@ -58,12 +60,14 @@ export function editQuestion(question) {
   };
 }
 
-export function addQuestion(question, onSuccess = null, onError = null) {
+export function addQuestion(question, onAddDone=null) {
   const request = axios.post(API_QUESTIONS, question);
   const requestInterceptor = (response) => {
     return new Promise((resolve, reject) => {
       if(checkFields(response, 'data.question')) {
         resolve(response.data.question);
+        if(onAddDone != null)
+          onAddDone();
       } else {
         reject();
       }

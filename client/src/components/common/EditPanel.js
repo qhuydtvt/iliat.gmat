@@ -5,7 +5,7 @@ class EditPanel extends Component {
   constructor(props) {
     super(props);
     this.blurToState = this.blurToState.bind(this);
-    this.tryGet = this.tryGet.bind(this);
+    this.tryGetState = this.tryGetState.bind(this);
     this.tryGetProp = this.tryGetProp.bind(this);
   }
 
@@ -42,9 +42,9 @@ class EditPanel extends Component {
     return assign.bind(this);
   }
 
-  tryGet(path, defaultValue, converter=null) {
-    const value = this.state[path];
-    if (value) return converter == null ? value : converter(value);
+  tryGetState(path, defaultValue, converter=null) {
+    const value = _.get(this.state, path);
+    if (value !== undefined) return converter == null ? value : converter(value);
     return defaultValue;
   }
 

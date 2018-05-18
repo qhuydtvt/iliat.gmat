@@ -47,7 +47,9 @@ function renderId(id)  {
 
 function renderStimulus(stimulus) {
   return (
-    <td className="td-stimulus">{ stimulus }</td> 
+    <td className="td-stimulus">
+      <span dangerouslySetInnerHTML={{__html: stimulus}} />
+    </td> 
   );
 }
 

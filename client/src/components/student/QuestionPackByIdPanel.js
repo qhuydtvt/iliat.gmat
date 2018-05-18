@@ -4,7 +4,7 @@ import { Container, Row, Col, Button, Form, FormGroup, Input, Label, TabContent,
 import _ from 'lodash';
 import moment from 'moment';
 
-import { fetchQuestionPackById } from '../../networks';
+import { fetchQuestion } from '../../networks';
 
 import { checkAnswers } from '../../actions';
 
@@ -40,7 +40,7 @@ class QuestionPackByIdPanel extends Component {
     componentWillMount() {
       const id = this.props.match.params.id;
       if(id) {
-        fetchQuestionPackById(id).then((questionPack) => {
+        fetchQuestion(id).then((questionPack) => {
           this.setState({
             questionPack
           });
