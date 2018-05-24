@@ -4,9 +4,10 @@ import { Switch, Route } from 'react-router-dom';
 
 import QPanel from './QPanel';
 import QPackPanel from './QPackPanel';
+import StdPanel from './StdPanel';
 import NavBar from '../navbar/NavBar';
 
-import { ROUTER_QUESTION_PACK, ROUTER_QUESTION } from '../../constants';
+import { ROUTER_QUESTION_PACK, ROUTER_QUESTION, ROUTER_STUDENT_MANAGEMENT } from '../../constants';
  
 class LecturerPanel extends Component {
     render() {
@@ -16,6 +17,7 @@ class LecturerPanel extends Component {
             <Switch>
               <Route path={ROUTER_QUESTION} component={QPanel} />
               <Route path={ROUTER_QUESTION_PACK} component={QPackPanel} />
+              <Route path={ROUTER_STUDENT_MANAGEMENT} component={StdPanel} />
             </Switch>
           </div>
         )

@@ -13,13 +13,19 @@ import reducers from './reducers';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+// import TestQDetail from './components/test/TestQDetail';
+
+// const logMiddleware = store => next => action => {
+//   next(action);
+// } 
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 ReactDOM.render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
-        <BrowserRouter>
-            <App/>
-        </BrowserRouter>
-    </Provider>
-    , document.getElementById('root'));
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+  , document.getElementById('root'));
 registerServiceWorker();

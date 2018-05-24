@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import QForm from './QForm';
+import QCRForm from './QCRForm';
 import { addQuestion } from '../../actions';
  
 class QAddPanel extends Component {
   constructor(props) {
     super(props);
-    this.defaultQuestion = {
-      stimulus: "",
-      stem: "",
-      choices: ["", "", "", "", ""],
-      rightChoice: 0,
-      difficulty: 0,
-      explanation: "",
-    };
     this.onSubmit = this.onSubmit.bind(this);
     this.onCancel = this.onCancel.bind(this);
   }
@@ -31,10 +23,20 @@ class QAddPanel extends Component {
     return (
       <div>
         <h3>Add question</h3>
-        <QForm
+        <QCRForm
           onSubmit={this.onSubmit}
           onCancel={this.onCancel}
-          question={this.defaultQuestion} />
+          initialValues={{
+            stimulus: "",
+            details: [{
+              stem: "",
+              choices: ["", "", "", "", ""],
+              rightChoice: 0,
+              explanation: "",
+              difficulty: 0,
+            }],
+          }} 
+        />
       </div>
     );
   }

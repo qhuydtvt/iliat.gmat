@@ -8,6 +8,8 @@ import { fetchQuestionPacks } from '../../actions';
 
 import { ROUTER_PACK } from '../../constants';
 
+import NavBar from '../navbar/NavBar';
+
 class QuestionPackListPanel extends Component {
     constructor(props) {
         super(props);
@@ -41,9 +43,12 @@ class QuestionPackListPanel extends Component {
 
     render() {
         return (
-            <Container className="question_pack_list">
-                { this.renderQuestionPacks(this.props.questionPackReducer) }
-            </Container>
+            <div>
+                <NavBar />
+                <Container className="question_pack_list">
+                    { this.renderQuestionPacks(this.props.questionPackReducer) }
+                </Container>
+            </div>
         );
     }
 }

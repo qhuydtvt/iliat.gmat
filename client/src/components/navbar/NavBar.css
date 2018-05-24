@@ -1,6 +1,7 @@
 nav {
   background-color: #1976D2;
-  margin: 0px 0px 16px 0px;
+  margin: 0px;
+  height: 7vh;
 }
 
 .nav-link {

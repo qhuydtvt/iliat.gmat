@@ -8,7 +8,6 @@ class StudentContainer extends Component {
     render() {
       return (
         <div>
-          <NavBar />
           <StudentPanel />
         </div>
         

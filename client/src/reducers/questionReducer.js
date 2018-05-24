@@ -8,11 +8,6 @@ export default function(state = {}, action) {
       return _.mapKeys(action.payload, "_id");
     case REMOVE_QUESTION:
       return _.omit(state, [action.payload]);
-    // case EDIT_QUESTION:
-    // case ADD_QUESTION:
-    //   const question = action.payload;
-    //   console.log(question);
-    //   return { ...state, [question._id]: question };
     default:
       return state;
   }

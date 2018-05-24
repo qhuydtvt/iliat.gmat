@@ -6,7 +6,7 @@ import { login } from '../../actions';
 
 import EditPanel from '../common/EditPanel';
 
-import Loading from '../common/loading';
+import Loading from '../common/Loading';
 
 class Login extends EditPanel {
   constructor(props) {

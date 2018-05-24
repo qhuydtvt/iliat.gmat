@@ -14,6 +14,7 @@ class QPackAddQuestionModal extends Component {
     super(props);
     this.toggleQuestionSelection = this.toggleQuestionSelection.bind(this);
     this.clearQuestionSelections = this.clearQuestionSelections.bind(this);
+    this.handleSearch = _.debounce(this.handleSearch, 300).bind(this);
     this.state = {
       questions: null
     };
@@ -21,6 +22,14 @@ class QPackAddQuestionModal extends Component {
   
   componentWillMount() {
     searchQuestion("").payload.then((questions) => {
+      this.setState({
+        questions: questions
+      });
+    });
+  }
+
+  handleSearch(searchTerms) {
+    searchQuestion(searchTerms).payload.then((questions) => {
       this.setState({
         questions: questions
       });
@@ -58,11 +67,11 @@ class QPackAddQuestionModal extends Component {
 
     return (
       <div>
-          <Input placeholder="Search here"></Input>
+          <Input placeholder="Search here" onChange={(event) => this.handleSearch(event.target.value)}></Input>
           <div className="q-modal-scroll">
             <QList 
               questions={questions} 
-              stimulusMaxLength={20} 
+              stimulusMaxLength={40} 
               onQuestionClicked={this.toggleQuestionSelection}
               pointer={true} 
             />
@@ -86,7 +95,8 @@ class QPackAddQuestionModal extends Component {
         <Modal 
             isOpen={this.props.isOpen} 
             toggle={this.props.toggle}
-            onOpened={this.clearQuestionSelections} >
+            onOpened={this.clearQuestionSelections}
+            size="md" >
           <ModalHeader>Add question</ModalHeader>
           <ModalBody>
             { this.renderQuestions(questions) }

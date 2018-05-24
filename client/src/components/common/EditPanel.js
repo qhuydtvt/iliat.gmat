@@ -43,8 +43,8 @@ class EditPanel extends Component {
   }
 
   tryGetState(path, defaultValue, converter=null) {
-    const value = _.get(this.state, path);
-    if (value !== undefined) return converter == null ? value : converter(value);
+    const value = this.state[path];
+    if (value) return converter == null ? value : converter(value);
     return defaultValue;
   }
 

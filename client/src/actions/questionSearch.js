@@ -9,8 +9,8 @@ export const SEARCH_QUESTION = "Search question";
 export const TOGGLE_QUESTION_SELECTION = "Select question selection";
 export const CLEAR_QUESTION_SELECTIONS = "Clear questions selections";
 
-export function searchQuestion(terms) {
-  const request = axios.get(API_QUESTIONS);
+export function searchQuestion(searchTerms) {
+  const request = axios.get(`${API_QUESTIONS}?searchTerms=${searchTerms}`);
   const interceptor = (response) => {
     return new Promise((resolve, reject) => {
       if(checkFields(response, ['data.success', 'data.questions'])) {
